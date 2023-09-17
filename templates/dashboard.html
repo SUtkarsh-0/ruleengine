@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="scrolltable.css">
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <h1 class="text-center mt-4 mb-4 ">
+            Rule Engine
+        </h1>
+        <div class="container" style="margin-bottom: 16px;">
+            <div class="container">
+                <p class="lead"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, ab ex dicta
+                    impedit quo totam beatae! Nesciunt natus ullam similique provident magnam ipsa dignissimos ipsam,
+                    labore magni maiores nemo voluptatum reiciendis enim quas voluptas quis? Unde cumque, suscipit ex
+                    debitis repellendus culpa, dolores voluptatum aliquam explicabo beatae quo! Explicabo aspernatur
+                    corporis assumenda magni, ratione ducimus debitis laudantium adipisci, tenetur alias aliquam fugiat
+                    vitae rerum. Delectus in assumenda deleniti labore necessitatibus quas dignissimos quidem ipsam
+                    odit, omnis numquam! Suscipit porro rem unde voluptates maxime, debitis mollitia minima at dolorum
+                    recusandae modi nobis aspernatur numquam ipsam quidem beatae accusamus. Provident, quo eaque.
+                </p>
+            </div>
+        </div>
+        <h2 class="text-center mt-2 mb-4">Rules</h2>
+        <p>
+            {% for rule in rules %}
+            {% include 'rules.html' %}
+            {% endfor %}
+        </p>
+        <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="/logout">Logout</a>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>
