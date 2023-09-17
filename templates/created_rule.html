@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="scrolltable.css">
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <h1 class="text-center mt-4 mb-4 ">
+            Rule Engine
+        </h1>
+
+        <h2 class="text-center mt-2 mb-4">Rule</h2>
+        <div class=" border-bottom row" style=" margin-top: 16px; padding-bottom:8px;">
+            <div class="col-9 ">
+                <div>
+                    <b>Trigger:</b> {{rules['triger']}}
+                </div>
+                <div>
+                    <b>Condition:</b> {{rules['cond']}}
+                </div>
+                <div>
+                    <b>Action:</b> {{rules['act']}}
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="/dashboard">Go Back to Dashboard</a>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>

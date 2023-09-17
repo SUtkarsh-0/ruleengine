@@ -1,38 +1,15 @@
 from flask import Flask, request,render_template, redirect,session
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
+from database import load_rules_from_db,add_rule_to_db
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 app.secret_key = 'secret_key'
 
-RULES = [
-    {
-        'id':1,
-        'trigger':'Rule 1 Trigger Condition',
-        'condition':'Rule 1 conditions',
-        'action':'Rule 1 action'
-    },
-    {
-        'id':2,
-        'trigger':'Rule 2 Trigger Condition',
-        'condition':'Rule 2 conditions',
-        'action':'Rule 2 action'
-    },
-    {
-        'id':3,
-        'trigger':'Rule 3 Trigger Condition',
-        'condition':'Rule 3 conditions',
-        'action':'Rule 3 action'
-    },
-    {
-        'id':4,
-        'trigger':'Rule 4 Trigger Condition',
-        'condition':'Rule 4 conditions',
-        'action':'Rule 4 action'
-    }
-]
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -54,7 +31,8 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    return render_template('index.html',rules=RULES)
+    rules = load_rules_from_db()
+    return render_template('index.html',rules=rules)
 
 
 @app.route('/register',methods=['GET','POST'])
@@ -98,24 +76,29 @@ def dashboard():
         user = User.query.filter_by(email=email).first()
         
         if user:
-            return render_template('dashboard.html', user=user, rules=RULES)
+            rules = load_rules_from_db()
+            return render_template('dashboard.html', user=user, rules=rules)
     
     return redirect('/login')
 
-
-
-# @app.route('/dashboard')
-# def dashboard():
-#     if session['email']:
-#         user = User.query.filter_by(email=session['email']).first()
-#         return render_template('dashboard.html',user=user)
-    
-#     return redirect('/login')
 
 @app.route('/logout')
 def logout():
     session.pop('email',None)
     return redirect('/login')
+
+
+
+@app.route("/create_rule")
+def create_rule():
+    return render_template('create_rule.html')
+
+@app.route("/created_rule", methods=['post'])
+def created_rule():
+    data= request.form
+    add_rule_to_db(data)
+    
+    return render_template('created_rule.html',rules=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

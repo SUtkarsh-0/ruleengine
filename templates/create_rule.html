@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Creation</title>
+    {% include 'bootstrap.html' %}
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <h4>APPLICATION FORM </h4>
+        <form action="/created_rule" method="post">
+            <div class="mb-2">
+                <label>Trigger</label><br>
+                <div class="form-group">
+                    <select name="triger" class="custom-select" required>
+                        <option value="">Open this select menu</option>
+                        <option value="One">One</option>
+                        <option value="Two">Two</option>
+                        <option value="Three">Three</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label>Condition</label><br>
+                <div class="form-group">
+                    <select name="cond" class="custom-select" required>
+                        <option value="">Open this select menu</option>
+                        <option value="One">One</option>
+                        <option value="Two">Two</option>
+                        <option value="Three">Three</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label>Action</label><br>
+                <div class="form-group">
+                    <select name="act" class="custom-select" required>
+                        <option value="">Open this select menu</option>
+                        <option value="One">One</option>
+                        <option value="Two">Two</option>
+                        <option value="Three">Three</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+            </div>
+
+            <input class="mb-2" type="submit">
+        </form>
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>
