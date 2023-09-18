@@ -28,6 +28,9 @@ pip install bcrypt
 
 Install all the required modules and then 
 ```bash
+ First replace db_connection_string in database with "mysql+pymysql://iu4o34rrt1vkbmn5ws1q:pscale_pw_AvEewIlmNnBGI2Q44BcOeeVSzwoWfDaIRkaygc9fS3V@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
+ as db_connection_string = "mysql+pymysql://iu4o34rrt1vkbmn5ws1q:pscale_pw_AvEewIlmNnBGI2Q44BcOeeVSzwoWfDaIRkaygc9fS3V@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
+ After this 
  Run the app.py file in the code  
 ```
 
@@ -48,7 +51,8 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-Still needed to add the condition checking functionality, 
+Still needed to add the condition checking functionality and when the code is pushed to git with the db values the connection gets cut off(Don't know why its happening and couldn't solve it ), So use the code in a private system and replace the db_connection_string given above 
+
 
 ## License
 
