@@ -28,11 +28,15 @@ pip install bcrypt
 
 Install all the required modules and then
 
-First replace db_connection_string in database with
- as db_connection_string = "mysql+pymysql://username:password@host/database?charset=utf8mb4"
- you can get these from the word file attached below
- for some reason it doesn't work just create your own database with the help of planetscale.com and connect a new database with all the given values and
- then create the table with following query
+First replace 
+
+db_connection_string in database.py with
+as db_connection_string = "mysql+pymysql://username:password@host/database?charset=utf8mb4"
+
+you can get these from the word file attached below
+for some reason if it doesn't work just create your own database with the help of planetscale.com and connect a new database with all the given values and
+then create the table with following query
+
 ```bash
  create table rules(
  id int auto_increment,
@@ -45,6 +49,7 @@ First replace db_connection_string in database with
  After this 
  Run the app.py file in the code  
 ```
+I committed the values before but it keep disconnecting the database for some reason when pushed to git
 
 ## Usage
 
