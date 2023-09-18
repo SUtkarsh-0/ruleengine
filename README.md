@@ -1,6 +1,3 @@
-# ruleengine
-Mysql based rule engine layout 
-
 # Flask
 # SQlAlchemy
 # Sqlite
@@ -17,7 +14,6 @@ SQLite is a C-language library that implements a small, fast, self-contained, hi
 bcrypt is a password-hashing function
 
 
-
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Flask, SqlAlchemy, flask_sqlalchemy, bcrypt
@@ -27,6 +23,12 @@ pip install Flask
 pip install sqlAlchemy
 pip install Flask_sqlalchemy
 pip install bcrypt
+```
+## How to Run
+
+Install all the required modules and then 
+```bash
+ Run the app.py file in the code  
 ```
 
 ## Usage
