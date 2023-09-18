@@ -28,8 +28,8 @@ pip install bcrypt
 
 Install all the required modules and then 
 ```bash
- First replace db_connection_string in database with "mysql+pymysql://iu4o34rrt1vkbmn5ws1q:pscale_pw_AvEewIlmNnBGI2Q44BcOeeVSzwoWfDaIRkaygc9fS3V@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
- as db_connection_string = "mysql+pymysql://iu4o34rrt1vkbmn5ws1q:pscale_pw_AvEewIlmNnBGI2Q44BcOeeVSzwoWfDaIRkaygc9fS3V@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
+ First replace db_connection_string in database with "mysql+pymysql://14ncdh2h5lnlcny2d195:pscale_pw_cmgdWnKbXNs6zLtE0cxEmRl42vWgQQS7xOWo7LXWrAb@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
+ as db_connection_string = "mysql+pymysql://14ncdh2h5lnlcny2d195:pscale_pw_cmgdWnKbXNs6zLtE0cxEmRl42vWgQQS7xOWo7LXWrAb@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
  After this 
  Run the app.py file in the code  
 ```
