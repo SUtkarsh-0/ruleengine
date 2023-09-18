@@ -18,9 +18,8 @@
                 <div class="form-group">
                     <select name="triger" class="custom-select" required>
                         <option value="">Open this select menu</option>
-                        <option value="One">One</option>
-                        <option value="Two">Two</option>
-                        <option value="Three">Three</option>
+                        <option value="Cart size">Cart size</option>
+                        <option value="Cart Value">Cart Value</option>
                     </select>
                     <div class="invalid-feedback">Example invalid custom select feedback</div>
                 </div>
@@ -30,26 +29,30 @@
                 <div class="form-group">
                     <select name="cond" class="custom-select" required>
                         <option value="">Open this select menu</option>
-                        <option value="One">One</option>
-                        <option value="Two">Two</option>
-                        <option value="Three">Three</option>
+                        <option value="Lower than">Lower than</option>
+                        <option value="Greater than">Greater than</option>
+                        <option value="Equal to ">Equal to</option>
                     </select>
                     <div class="invalid-feedback">Example invalid custom select feedback</div>
                 </div>
             </div>
-
+            <div class="mb-2">
+                <label>Value</label><br>
+                <input type="number" required name="val" placeholder="Value">
+            </div>
             <div class="mb-2">
                 <label>Action</label><br>
                 <div class="form-group">
                     <select name="act" class="custom-select" required>
                         <option value="">Open this select menu</option>
-                        <option value="One">One</option>
-                        <option value="Two">Two</option>
-                        <option value="Three">Three</option>
+                        <option value="Discount of 10%">Discount of 10%</option>
+                        <option value="Discount of 20%">Discount of 20%</option>
+                        <option value="Discount of 30%">Discount of 30%</option>
                     </select>
                     <div class="invalid-feedback">Example invalid custom select feedback</div>
                 </div>
             </div>
+
 
             <input class="mb-2" type="submit">
         </form>

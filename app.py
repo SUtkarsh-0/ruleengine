@@ -1,7 +1,7 @@
 from flask import Flask, request,render_template, redirect,session
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
-from database import load_rules_from_db,add_rule_to_db
+from database import load_rules_from_db,add_rule_to_db,delete_rule_from_db
 
 
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def login():
             session['email'] = user.email
             return redirect('/dashboard')
         else:
-            return render_template('login.html',error='Invalid user')
+            return render_template('login.html',error='Invalid User,Try Again!')
 
     return render_template('login.html')
 
@@ -99,6 +99,11 @@ def created_rule():
     add_rule_to_db(data)
     
     return render_template('created_rule.html',rules=data)
+@app.route("/rule/<id>")
+def delete(id):
+    delete_rule_from_db(id)
+    return redirect('/dashboard')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

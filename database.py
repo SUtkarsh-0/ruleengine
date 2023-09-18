@@ -21,16 +21,26 @@ def load_rules_from_db():
      
 def add_rule_to_db(data):
     with engine.connect() as conn:
-       query = text("INSERT INTO rules (triger, cond, act) VALUES (:triger, :cond, :act)")
+       query = text("INSERT INTO rules (triger, cond, act, val) VALUES (:triger, :cond, :act, :val)")
 
        conn.execute(query,
                     {
                         "triger":data['triger'],
                         "cond": data['cond'],
-                        "act": data['act'] 
+                        "act": data['act'],
+                        "val": data['val'],
+
                     })
     
     
+def delete_rule_from_db(id):
+    with engine.connect() as conn:
+        query= text("delete from rules where rules.id = :id")
+
+        conn.execute(query,
+                     {
+                         "id":id
+                     })
 
 
 

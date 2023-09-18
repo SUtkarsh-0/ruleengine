@@ -17,6 +17,7 @@
         <div class=" row justify-content-center">
             <div class="col-sm-6 mt-4">
                 <h2>Login form</h2>
+                <div>{{error}}</div>
                 <form action="/login" method="POST">
                     <div class="form-group">
                         <label for="email"><b>Email:</b></label>
@@ -31,6 +32,8 @@
 
                     <button type="submit" class="btn btn-dark">Submit</button>
                     <a href="/register" class="btn btn-primary">Register</a>
+                    <a href="/" class="btn btn-primary">Home</a>
+
                 </form>
             </div>
 
