@@ -1,16 +1,17 @@
+#ALL THE MODULES USED
 from flask import Flask, request,render_template, redirect,session
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 from database import load_rules_from_db,add_rule_to_db,delete_rule_from_db
 
-
+#SQLLITE DATABASE FOR AUTHENTICATION AND USER LOGIN AND LOGOUT
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 app.secret_key = 'secret_key'
 
 
-
+# USER AUTHENTICATION  AND VALIDATION
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -27,18 +28,19 @@ class User(db.Model):
 
 with app.app_context():
     db.create_all()
+# User Authentication End 
 
-
+# All THE ROUTES USED
+# INDEX ROUTE
 @app.route("/")
 def index():
     rules = load_rules_from_db()
     return render_template('index.html',rules=rules)
 
-
+# REGISTERATION ROUTE
 @app.route('/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
-        # handle request
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
@@ -52,6 +54,7 @@ def register():
 
     return render_template('register.html')
 
+#LOGIN ROUTE
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST':
@@ -68,7 +71,7 @@ def login():
 
     return render_template('login.html')
 
-
+#DASHBOARD ROUTE
 @app.route("/dashboard")
 def dashboard():
     if 'email' in session:
@@ -81,18 +84,19 @@ def dashboard():
     
     return redirect('/login')
 
-
+#LOGOUT ROUTE
 @app.route('/logout')
 def logout():
     session.pop('email',None)
     return redirect('/login')
 
 
-
+#RULE CREATION FORM ROUTE
 @app.route("/create_rule")
 def create_rule():
     return render_template('create_rule.html')
 
+#RULE CREATION ROUTE
 @app.route("/created_rule", methods=['post'])
 def created_rule():
     data= request.form
