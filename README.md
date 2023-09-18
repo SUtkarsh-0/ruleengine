@@ -26,10 +26,21 @@ pip install bcrypt
 ```
 ## How to Run
 
-Install all the required modules and then 
+Install all the required modules and then
+First replace db_connection_string in database with
+ as db_connection_string = "mysql+pymysql://username:password@host/database?charset=utf8mb4"
+ you can get these from the word file attached below
+ for some reason it doesn't work just create your own database with the help of planetscale.com and connect a new database with all the given values and
+ then create the table with following query
 ```bash
- First replace db_connection_string in database with "mysql+pymysql://14ncdh2h5lnlcny2d195:pscale_pw_cmgdWnKbXNs6zLtE0cxEmRl42vWgQQS7xOWo7LXWrAb@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
- as db_connection_string = "mysql+pymysql://14ncdh2h5lnlcny2d195:pscale_pw_cmgdWnKbXNs6zLtE0cxEmRl42vWgQQS7xOWo7LXWrAb@aws.connect.psdb.cloud/utkarshflaskdb?charset=utf8mb4"
+  create table rules(
+ id int auto_increment,
+ triger varchar(100),
+ cond varchar(100),
+ val int ,
+ act varchar(100)
+ primary key(id)
+ );
  After this 
  Run the app.py file in the code  
 ```
